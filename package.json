@@ -1,7 +1,7 @@
 {
   "name": "dynamic-form-json",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "dist/index.js",
   "repository": "https://github.com/ridoansaleh/dynamic-form-json.git",
   "author": "ridoansaleh <ridoansalehnasution98@gmail.com>",
   "license": "MIT",
@@ -10,7 +10,6 @@
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
