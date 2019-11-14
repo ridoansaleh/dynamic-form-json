@@ -11,7 +11,7 @@ export function createYupSchema(schema, config) {
     if (!validator[type]) {
       return;
     }
-    console.log(type, params);
+    // console.log(type, params);
     validator = validator[type](...params);
   });
   schema[id] = validator;
