@@ -1,71 +1,69 @@
-import React, { Component } from "react";
+import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 
 import TextField from "./TextField";
 import { createYupSchema } from "../utils/yupSchemaCreator";
 
-class Form extends Component {
-  renderFormElements = props => {
-    const { fields } = this.props;
+function Form(props) {
+  const renderFormElements = formikProps => {
+    const { fields } = props;
+    const { errors, values, handleChange } = formikProps;
     return fields.map((item, index) => {
       const fieldMap = {
         text: TextField
       };
       const Component = fieldMap[item.type];
-      let error = props.errors.hasOwnProperty(item.id) && props.errors[item.id];
-      if (item.type) {
-        return (
-          <Component
-            key={index}
-            label={item.label}
-            name={item.id}
-            placeholder={item.placeholder}
-            value={props.values[item.id]}
-            onChange={props.handleChange}
-            error={error}
-          />
-        );
+      let error = errors.hasOwnProperty(item.id) && errors[item.id];
+      if (!item.type) {
+        return null;
       }
-      return "";
+      return (
+        <Component
+          key={index}
+          label={item.label}
+          name={item.id}
+          placeholder={item.placeholder}
+          value={values[item.id]}
+          onChange={handleChange}
+          error={error}
+        />
+      );
     });
   };
 
-  render() {
-    const { fields } = this.props;
-    const initialValues = {};
+  const { fields } = props;
+  const initialValues = {};
 
-    fields.forEach(item => {
-      initialValues[item.id] = item.value || "";
-    });
+  fields.forEach(item => {
+    initialValues[item.id] = item.value || "";
+  });
 
-    const yepSchema = fields.reduce(createYupSchema, {});
+  const yupSchema = fields.reduce(createYupSchema, {});
 
-    console.log(yepSchema);
+  // console.log(yupSchema);
 
-    const validateSchema = yup.object().shape(yepSchema);
+  const validateSchema = yup.object().shape(yupSchema);
 
-    return (
-      <div className="form">
-        <h1>Form here</h1>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validateSchema}
-          onSubmit={(values, actions) => {
-            console.log("values", values);
-            console.log("actions", actions);
-          }}
-        >
-          {props => (
-            <form onSubmit={props.handleSubmit}>
-              {this.renderFormElements(props)}
-              <button type="submit">Submit</button>
-            </form>
-          )}
-        </Formik>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validateSchema}
+        onSubmit={(values, actions) => {
+          // console.log("values", values);
+          // console.log("actions", actions);
+        }}
+      >
+        {formikProps => (
+          <form onSubmit={formikProps.handleSubmit}>
+            {renderFormElements(formikProps)}
+            <button type="submit">Submit</button>
+          </form>
+        )}
+      </Formik>
+    </div>
+  );
 }
 
 export default Form;
