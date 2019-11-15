@@ -1,20 +1,19 @@
 import React from "react";
+import { FieldContainer, Input } from "./_fieldStyles";
 
 function TextField(props) {
-  const renderError = props.error ? <strong>{props.error}</strong> : null;
   return (
-    <div>
-      <label>{props.label}</label>
-      <br />
-      <input
+    <FieldContainer>
+      <div className="label">{props.label}</div>
+      <Input
         type="text"
         name={props.name}
         placeholder={props.placeholder}
         value={props.value}
         onChange={props.onChange}
       />
-      {renderError}
-    </div>
+      {props.error && <div className="error">{props.error}</div>}
+    </FieldContainer>
   );
 }
 
