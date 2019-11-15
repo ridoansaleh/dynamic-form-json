@@ -2,7 +2,8 @@ import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 
-import TextField from "./TextField";
+import TextField from "./fields/TextField";
+import SelectField from "./fields/SelectField";
 import { createYupSchema } from "../utils/yupSchemaCreator";
 
 function Form(props) {
@@ -11,7 +12,8 @@ function Form(props) {
     const { errors, values, handleChange } = formikProps;
     return fields.map((item, index) => {
       const fieldMap = {
-        text: TextField
+        text: TextField,
+        select: SelectField
       };
       const Component = fieldMap[item.type];
       let error = errors.hasOwnProperty(item.id) && errors[item.id];
@@ -25,6 +27,7 @@ function Form(props) {
           name={item.id}
           placeholder={item.placeholder}
           value={values[item.id]}
+          options={item.options}
           onChange={handleChange}
           error={error}
         />
@@ -46,23 +49,21 @@ function Form(props) {
   const validateSchema = yup.object().shape(yupSchema);
 
   return (
-    <div>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validateSchema}
-        onSubmit={(values, actions) => {
-          // console.log("values", values);
-          // console.log("actions", actions);
-        }}
-      >
-        {formikProps => (
-          <form onSubmit={formikProps.handleSubmit}>
-            {renderFormElements(formikProps)}
-            <button type="submit">Submit</button>
-          </form>
-        )}
-      </Formik>
-    </div>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validateSchema}
+      onSubmit={(values, actions) => {
+        // console.log("values", values);
+        // console.log("actions", actions);
+      }}
+    >
+      {formikProps => (
+        <form onSubmit={formikProps.handleSubmit}>
+          {renderFormElements(formikProps)}
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </Formik>
   );
 }
 

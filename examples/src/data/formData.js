@@ -90,5 +90,21 @@ export const formData = [
         params: [5, "max family members can be 5"]
       }
     ]
+  },
+  {
+    id: "city",
+    label: "City Address",
+    placeholder: "City Address",
+    type: "select",
+    validationType: "string",
+    required: false,
+    value: "",
+    options: ["Batam", "Jakarta", "Bandung"],
+    validations: [
+      {
+        type: "required",
+        params: ["this field is required"]
+      }
+    ]
   }
 ];
