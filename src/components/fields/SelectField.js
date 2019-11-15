@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FieldContainer, Select } from "./_fieldStyles";
 
 function SelectField(props) {
@@ -23,5 +24,18 @@ function SelectField(props) {
     </FieldContainer>
   );
 }
+
+SelectField.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.any,
+  options: PropTypes.array,
+  error: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+};
+
+SelectField.defaultValue = {
+  options: []
+};
 
 export default SelectField;

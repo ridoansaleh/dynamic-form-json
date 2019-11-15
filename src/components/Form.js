@@ -1,40 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Formik } from "formik";
 import * as yup from "yup";
-
-import TextField from "./fields/TextField";
-import SelectField from "./fields/SelectField";
+import Fields from "./fields";
 import { createYupSchema } from "../utils/yupSchemaCreator";
+import { FIELD_TYPES, VALIDATION_TYPES } from "../constants";
 
 function Form(props) {
-  const renderFormElements = formikProps => {
-    const { fields } = props;
-    const { errors, values, handleChange } = formikProps;
-    return fields.map((item, index) => {
-      const fieldMap = {
-        text: TextField,
-        select: SelectField
-      };
-      const Component = fieldMap[item.type];
-      let error = errors.hasOwnProperty(item.id) && errors[item.id];
-      if (!item.type) {
-        return null;
-      }
-      return (
-        <Component
-          key={index}
-          label={item.label}
-          name={item.id}
-          placeholder={item.placeholder}
-          value={values[item.id]}
-          options={item.options}
-          onChange={handleChange}
-          error={error}
-        />
-      );
-    });
-  };
-
   const { fields } = props;
   const initialValues = {};
 
@@ -43,7 +15,6 @@ function Form(props) {
   });
 
   const yupSchema = fields.reduce(createYupSchema, {});
-
   // console.log(yupSchema);
 
   const validateSchema = yup.object().shape(yupSchema);
@@ -59,12 +30,32 @@ function Form(props) {
     >
       {formikProps => (
         <form onSubmit={formikProps.handleSubmit}>
-          {renderFormElements(formikProps)}
+          <Fields fields={fields} formikProps={formikProps} />
           <button type="submit">Submit</button>
         </form>
       )}
     </Formik>
   );
 }
+
+Form.propTypes = {
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string,
+      placeholder: PropTypes.string,
+      type: PropTypes.oneOf(FIELD_TYPES).isRequired,
+      validationType: PropTypes.oneOf(VALIDATION_TYPES).isRequired,
+      value: PropTypes.any,
+      options: PropTypes.array,
+      validations: PropTypes.arrayOf(
+        PropTypes.shape({
+          type: PropTypes.string.isRequired,
+          params: PropTypes.array.isRequired
+        })
+      )
+    })
+  ).isRequired
+};
 
 export default Form;
