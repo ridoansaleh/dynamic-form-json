@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FieldContainer, Input } from "./_fieldStyles";
 
 function TextField(props) {
@@ -16,5 +17,14 @@ function TextField(props) {
     </FieldContainer>
   );
 }
+
+TextField.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.any,
+  error: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+};
 
 export default TextField;
