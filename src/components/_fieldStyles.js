@@ -20,3 +20,9 @@ export const Select = styled.select`
   padding: 5px;
   min-width: 190px;
 `;
+
+export const TextArea = styled.textarea`
+  padding: 5px;
+  min-width: 180px;
+  height: 75px;
+`;

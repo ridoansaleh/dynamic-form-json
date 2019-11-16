@@ -9,15 +9,15 @@ export const formData = [
     validations: [
       {
         type: "required",
-        params: ["this field is required"]
+        params: ["name is required"]
       },
       {
         type: "min",
-        params: [5, "name cannot be less than 5 characters"]
+        params: [5, "name can't be less than 5 characters"]
       },
       {
         type: "max",
-        params: [10, "name cannot be more than 10 characters"]
+        params: [10, "name can't be more than 10 characters"]
       }
     ]
   },
@@ -31,15 +31,15 @@ export const formData = [
     validations: [
       {
         type: "required",
-        params: ["this field is required"]
+        params: ["email is required"]
       },
       {
         type: "min",
-        params: [5, "email cannot be less than 5 characters"]
+        params: [5, "email can't be less than 5 characters"]
       },
       {
         type: "max",
-        params: [10, "email cannot be more than 10 characters"]
+        params: [20, "email can't be more than 20 characters"]
       },
       {
         type: "email",
@@ -49,19 +49,11 @@ export const formData = [
   },
   {
     id: "phoneNumber",
-    label: "phone number",
+    label: "Phone Number",
     type: "text",
     validationType: "number",
-    value: "7878787878",
+    value: "6287821187594",
     validations: [
-      {
-        type: "min",
-        params: [10, "phone number cannot be less than 10 characters"]
-      },
-      {
-        type: "max",
-        params: [10, "phone number cannot be more than 10 characters"]
-      },
       {
         type: "required",
         params: ["phone number is required"]
@@ -70,7 +62,7 @@ export const formData = [
   },
   {
     id: "total",
-    label: "Total People in Family",
+    label: "Total Family Member",
     placeholder: "family members count",
     type: "text",
     validationType: "number",
@@ -79,7 +71,7 @@ export const formData = [
     validations: [
       {
         type: "required",
-        params: ["this field is required"]
+        params: ["total family's member is required"]
       },
       {
         type: "min",
@@ -103,7 +95,26 @@ export const formData = [
     validations: [
       {
         type: "required",
-        params: ["this field is required"]
+        params: ["city address is required"]
+      }
+    ]
+  },
+  {
+    id: "home",
+    label: "Home Address",
+    placeholder: "Home Address",
+    type: "textarea",
+    validationType: "string",
+    required: false,
+    value: "",
+    validations: [
+      {
+        type: "required",
+        params: ["home address is required"]
+      },
+      {
+        type: "min",
+        params: [10, "home address can't be less than 10 characters"]
       }
     ]
   }

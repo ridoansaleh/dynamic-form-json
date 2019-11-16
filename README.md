@@ -1,4 +1,4 @@
- [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.3-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v12.6.0-green)](https://www.npmjs.com/package/dynamic-form-json) 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.3-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v12.6.0-green)](https://www.npmjs.com/package/dynamic-form-json)
 
 # Dynamic Form Json
 
@@ -60,7 +60,7 @@ Currently this library supports form input types such as:
 
 - [x] select
 
-- [ ] textarea
+- [x] textarea
 
 - [ ] radio
 

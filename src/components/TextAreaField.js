@@ -1,0 +1,30 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { FieldContainer, TextArea } from "./_fieldStyles";
+
+function TextAreaField(props) {
+  return (
+    <FieldContainer>
+      <div className="label">{props.label}</div>
+      <TextArea
+        type="text"
+        name={props.name}
+        defaultValue={props.value}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+      />
+      {props.error && <div className="error">{props.error}</div>}
+    </FieldContainer>
+  );
+}
+
+TextAreaField.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.any,
+  error: PropTypes.any,
+  onChange: PropTypes.func.isRequired
+};
+
+export default TextAreaField;

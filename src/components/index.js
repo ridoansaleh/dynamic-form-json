@@ -2,13 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextField from "./TextField";
 import SelectField from "./SelectField";
+import TextAreaField from "./TextAreaField";
 
 const fieldMap = {
   text: TextField,
-  select: SelectField
+  select: SelectField,
+  textarea: TextAreaField
 };
 
-function Field(fields, formikProps) {
+function Field({ fields, formikProps }) {
   const { errors, values, handleChange } = formikProps;
   return fields.map((item, index) => {
     const Component = fieldMap[item.type];

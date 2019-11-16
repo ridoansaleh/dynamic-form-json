@@ -23,7 +23,7 @@ TextField.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   value: PropTypes.any,
-  error: PropTypes.string,
+  error: PropTypes.any,
   onChange: PropTypes.func.isRequired
 };
 
