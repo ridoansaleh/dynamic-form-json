@@ -72,7 +72,7 @@ export const formData = [
 ]
 ```
 
-## Fields Support
+## Supported Fields
 
 Currently this library supports form input types such as:
 
