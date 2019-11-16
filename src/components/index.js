@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import TextField from "./TextField";
 import SelectField from "./SelectField";
 import TextAreaField from "./TextAreaField";
+import RadioButtonField from "./RadioButtonField";
 
 const fieldMap = {
   text: TextField,
   select: SelectField,
-  textarea: TextAreaField
+  textarea: TextAreaField,
+  radio: RadioButtonField
 };
 
 function Field({ fields, formikProps }) {
