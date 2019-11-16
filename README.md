@@ -82,7 +82,7 @@ Currently this library supports form input types such as:
 
 - [x] textarea
 
-- [ ] radio
+- [x] radio
 
 - [ ] checkbox
 

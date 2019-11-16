@@ -1,11 +1,11 @@
 export const formData = [
   {
     id: "name",
-    label: "Full name",
-    placeholder: "Enter full name",
+    label: "Full Name",
+    placeholder: "full name",
     type: "text",
     validationType: "string",
-    value: "User name",
+    value: "",
     validations: [
       {
         type: "required",
@@ -24,10 +24,10 @@ export const formData = [
   {
     id: "email",
     label: "Email",
-    placeholder: "Email",
+    placeholder: "email",
     type: "text",
     validationType: "string",
-    value: "email",
+    value: "",
     validations: [
       {
         type: "required",
@@ -48,11 +48,12 @@ export const formData = [
     ]
   },
   {
-    id: "phoneNumber",
+    id: "phone_number",
     label: "Phone Number",
+    placeholder: "phone number",
     type: "text",
     validationType: "number",
-    value: "6287821187594",
+    value: "",
     validations: [
       {
         type: "required",
@@ -63,11 +64,10 @@ export const formData = [
   {
     id: "total",
     label: "Total Family Member",
-    placeholder: "family members count",
+    placeholder: "total family member",
     type: "text",
     validationType: "number",
-    required: false,
-    value: "1",
+    value: "",
     validations: [
       {
         type: "required",
@@ -86,10 +86,9 @@ export const formData = [
   {
     id: "city",
     label: "City Address",
-    placeholder: "City Address",
+    placeholder: "",
     type: "select",
     validationType: "string",
-    required: false,
     value: "",
     options: ["Batam", "Jakarta", "Bandung"],
     validations: [
@@ -102,10 +101,9 @@ export const formData = [
   {
     id: "home",
     label: "Home Address",
-    placeholder: "Home Address",
+    placeholder: "home address",
     type: "textarea",
     validationType: "string",
-    required: false,
     value: "",
     validations: [
       {
@@ -115,6 +113,21 @@ export const formData = [
       {
         type: "min",
         params: [10, "home address can't be less than 10 characters"]
+      }
+    ]
+  },
+  {
+    id: "gender",
+    label: "Gender",
+    placeholder: "",
+    type: "radio",
+    validationType: "string",
+    value: "",
+    options: ["Male", "Female"],
+    validations: [
+      {
+        type: "required",
+        params: ["gender is required"]
       }
     ]
   }

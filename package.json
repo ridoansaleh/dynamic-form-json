@@ -1,6 +1,6 @@
 {
   "name": "dynamic-form-json",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "repository": "https://github.com/ridoansaleh/dynamic-form-json.git",
   "author": "ridoansaleh <ridoansalehnasution98@gmail.com>",
