@@ -17,10 +17,30 @@ index.js
 ```
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DynamicForm from 'dynamic-form-json';
-import { formData } from './data/formData'
+import App from './App';
 
-ReactDOM.render(<DynamicForm fields={formData} />, document.getElementById("root))
+ReactDOM.render(<App />, document.getElementById("root))
+```
+
+App.js
+
+```
+import DynamicForm from 'dynamic-form-json';
+import { formData } from './data/formData';
+
+function App() {
+  const handleSubmission = val => {
+    console.log('Values : 'val)
+  }
+  return (
+    <div>
+      <h2>My Amazing Form</h2>
+      <DynamicForm fields={formData} cbSubmit={handleSubmission} />
+    </div>
+  )
+}
+
+export default App;
 ```
 
 formData.js
@@ -52,7 +72,7 @@ export const formData = [
 ]
 ```
 
-## Fields Support
+## Supported Fields
 
 Currently this library supports form input types such as:
 
