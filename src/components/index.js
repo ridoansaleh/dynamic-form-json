@@ -4,16 +4,18 @@ import TextField from "./TextField";
 import SelectField from "./SelectField";
 import TextAreaField from "./TextAreaField";
 import RadioButtonField from "./RadioButtonField";
+import CheckboxField from "./CheckboxField";
 
 const fieldMap = {
   text: TextField,
   select: SelectField,
   textarea: TextAreaField,
-  radio: RadioButtonField
+  radio: RadioButtonField,
+  checkbox: CheckboxField
 };
 
 function Field({ fields, formikProps }) {
-  const { errors, values, handleChange } = formikProps;
+  const { errors, values, handleChange, setFieldValue } = formikProps;
   return fields.map((item, index) => {
     const Component = fieldMap[item.type];
     let error = errors.hasOwnProperty(item.id) && errors[item.id];
@@ -29,6 +31,7 @@ function Field({ fields, formikProps }) {
         value={values[item.id]}
         options={item.options}
         onChange={handleChange}
+        setFieldValue={setFieldValue}
         error={error}
       />
     );

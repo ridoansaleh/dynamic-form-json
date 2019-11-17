@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FieldContainer, RadioLabel } from "./_fieldStyles";
+import { FieldContainer, Label } from "./_fieldStyles";
 
 function RadioButtonField(props) {
   return (
@@ -8,7 +8,7 @@ function RadioButtonField(props) {
       <div className="label">{props.label}</div>
       {props.options.map((opt, index) => {
         return (
-          <RadioLabel key={index}>
+          <Label key={index}>
             <input
               type="radio"
               name={props.name}
@@ -17,7 +17,7 @@ function RadioButtonField(props) {
               onChange={props.onChange}
             />
             {opt}
-          </RadioLabel>
+          </Label>
         );
       })}
       {props.error && <div className="error">{props.error}</div>}

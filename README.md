@@ -2,7 +2,7 @@
 
 # Dynamic Form Json
 
-`dynamic-form-json` is a tiny library to generate form automatically based on certain Object data (passed as props). This library use regular css created from scratch, so user can customize it in the future. On top of it, i use Formik and Yup for form's skeleton and validations. Credit goes to [vijayranghar](https://github.com/vijayranghar) for the inspiration how to create dynamic validation on Yup from this [link](https://github.com/jquense/yup/issues/559).
+`dynamic-form-json` is a tiny library to generate a Form in React automatically based on certain array of object that passed as a props. This library use regular css created from scratch, so user can customize it in the future. On top of it, i use Formik and Yup for form's skeleton and validations. Credit goes to [vijayranghar](https://github.com/vijayranghar) for the inspiration how to create dynamic validation on Yup from this [link](https://github.com/jquense/yup/issues/559).
 
 ## Installation
 
@@ -84,7 +84,7 @@ Currently this library supports form input types such as:
 
 - [x] radio
 
-- [ ] checkbox
+- [x] checkbox
 
 - [ ] upload
 
