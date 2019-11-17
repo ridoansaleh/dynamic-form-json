@@ -27,6 +27,6 @@ export const TextArea = styled.textarea`
   height: 75px;
 `;
 
-export const RadioLabel = styled.label`
+export const Label = styled.label`
   margin-right: 20px;
 `;

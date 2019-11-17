@@ -130,5 +130,20 @@ export const formData = [
         params: ["gender is required"]
       }
     ]
+  },
+  {
+    id: "hobbies",
+    label: "Hobbies",
+    placeholder: "",
+    type: "checkbox",
+    validationType: "string",
+    value: "",
+    options: ["Playing Football", "Online Games", "Travelling"],
+    validations: [
+      {
+        type: "required",
+        params: ["hobbies is required"]
+      }
+    ]
   }
 ];
