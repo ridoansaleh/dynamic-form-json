@@ -1,8 +1,8 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.5-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v12.6.0-green)](https://www.npmjs.com/package/dynamic-form-json)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.6-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v12.6.0-green)](https://www.npmjs.com/package/dynamic-form-json)
 
 # Dynamic Form Json
 
-`dynamic-form-json` is a tiny library to generate a Form in React automatically based on certain array of object that passed as a props. This library use regular css created from scratch, so user can customize it in the future. On top of it, i use Formik and Yup for form's skeleton and validations. Credit goes to [vijayranghar](https://github.com/vijayranghar) for the inspiration how to create dynamic validation on Yup from this [link](https://github.com/jquense/yup/issues/559).
+`dynamic-form-json` is a tiny library to generate a Form in React automatically based on certain array of object that passed as a props. This library use regular css created from scratch, so user can customize it in the future. On top of it, i use [Formik](https://github.com/jaredpalmer/formik) and [Yup](https://github.com/jquense/yup) for form's skeleton and validations. Credit goes to [vijayranghar](https://github.com/vijayranghar) for the inspiration how to create dynamic validation on Yup from this [link](https://github.com/jquense/yup/issues/559).
 
 ## Installation
 
