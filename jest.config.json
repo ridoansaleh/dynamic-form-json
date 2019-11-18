@@ -1,0 +1,3 @@
+{
+  "setupFiles": ["<rootDir>/enzyme.setup.js"]
+}
