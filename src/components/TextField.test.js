@@ -51,7 +51,7 @@ describe("<TextField />", () => {
   //   expect(valValue).toEqual("Jakarta");
   // });
 
-  it("Div 'error' has the correct value", () => {
+  it("Div 'error' has the correct text as a child", () => {
     const errorValue = wrapper.find(".error").text();
     expect(errorValue).toEqual(testProps.error);
   });
