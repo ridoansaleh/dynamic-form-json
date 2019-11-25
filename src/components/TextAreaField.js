@@ -9,7 +9,7 @@ function TextAreaField(props) {
       <TextArea
         type="text"
         name={props.name}
-        defaultValue={props.value}
+        value={props.value}
         placeholder={props.placeholder}
         onChange={props.onChange}
       />
@@ -25,6 +25,15 @@ TextAreaField.propTypes = {
   value: PropTypes.any,
   error: PropTypes.any,
   onChange: PropTypes.func.isRequired
+};
+
+TextAreaField.defaultProps = {
+  label: "",
+  name: "",
+  placeholder: "",
+  value: "",
+  error: "",
+  onChange: () => {}
 };
 
 export default TextAreaField;
