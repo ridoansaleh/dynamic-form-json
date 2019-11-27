@@ -7,7 +7,7 @@ const testProps = {
   name: "message",
   placeholder: "Type your message",
   value: "",
-  error: "Message must be a more than 10 characters"
+  error: "Message must be more than 10 characters"
 };
 
 describe("<TextAreaField />", () => {
