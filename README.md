@@ -10,16 +10,16 @@
 
 ## How to Use
 
-Incase you are curious to try this library, you can implement it as source code below.
+Incase you are curious to try this library, you can implement it as the source code below.
 
 index.js
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById("root))
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 App.js
