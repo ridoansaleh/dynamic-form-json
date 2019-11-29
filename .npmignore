@@ -3,4 +3,6 @@ coverage
 examples
 .babelrc
 .gitignore
+enzyme.setup.js
+jest.config.json
 webpack.config.js
