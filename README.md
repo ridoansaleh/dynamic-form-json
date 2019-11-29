@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.7-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v12.6.0-green)](https://www.npmjs.com/package/dynamic-form-json)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.8-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v12.6.0-green)](https://www.npmjs.com/package/dynamic-form-json)
 
 # Dynamic Form Json
 
@@ -7,6 +7,10 @@
 ## Installation
 
 `npm install dynamic-form-json` or `yarn add dynamic-form-json`
+
+## Peer Dependencies
+
+Remember you also need to install the [peer dependencies](https://yarnpkg.com/lang/en/docs/dependency-types/#toc-peerdependencies) of this package. They are `formik`, `yup`, and `styled-components`.
 
 ## How to Use
 
@@ -53,7 +57,7 @@ export const formData = [
     placeholder: "Enter full name",
     type: "text",
     validationType: "string",
-    value: "User name",
+    value: "",
     validations: [
       {
         type: "required",

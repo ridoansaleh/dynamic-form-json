@@ -1,13 +1,22 @@
 {
   "name": "dynamic-form-json",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "repository": "https://github.com/ridoansaleh/dynamic-form-json.git",
+  "description": "dynamic-form-json is a tiny library to generate a Form in React automatically based on certain array of object that passed as a props",
   "author": "ridoansaleh <ridoansalehnasution98@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": "12.6.0"
   },
+  "keywords": [
+    "react",
+    "form",
+    "dynamic-form",
+    "formik",
+    "yup",
+    "styled-component"
+  ],
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "test": "jest --config ./jest.config.json",
@@ -41,6 +50,9 @@
   },
   "peerDependencies": {
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "formik": "^2.0.3",
+    "yup": "^0.27.0",
+    "styled-components": "^4.4.1"
   }
 }
