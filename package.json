@@ -2,12 +2,13 @@
   "name": "dynamic-form-json",
   "version": "1.0.8",
   "main": "dist/index.js",
+  "homepage": "https://ridoansaleh.github.io/dynamic-form-json",
   "repository": "https://github.com/ridoansaleh/dynamic-form-json.git",
   "description": "dynamic-form-json is a tiny library to generate a Form in React automatically based on certain array of object that passed as a props",
   "author": "ridoansaleh <ridoansalehnasution98@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "12.6.0"
+    "node": "12.19.0"
   },
   "keywords": [
     "react",
@@ -18,41 +19,39 @@
     "styled-component"
   ],
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "test": "jest --config ./jest.config.json",
-    "test:coverage": "jest --config ./jest.config.json --coverage",
+    "start": "webpack serve",
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-proposal-class-properties": "^7.7.0",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "formik": "^2.0.3",
-    "html-webpack-plugin": "^3.2.0",
-    "jest": "^24.9.0",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
+    "formik": "^2.2.0",
+    "gh-pages": "^3.1.0",
+    "html-webpack-plugin": "^5.0.0-alpha.5",
     "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "style-loader": "^1.0.0",
-    "styled-components": "^4.4.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0",
-    "yup": "^0.27.0"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "style-loader": "^2.0.0",
+    "styled-components": "^5.2.0",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0-rc.1",
+    "webpack-dev-server": "^3.11.0",
+    "yup": "^0.29.3"
   },
   "peerDependencies": {
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "formik": "^2.0.3",
-    "yup": "^0.27.0",
-    "styled-components": "^4.4.1"
+    "formik": "^2.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "styled-components": "^5.2.0",
+    "yup": "^0.29.3"
   }
 }

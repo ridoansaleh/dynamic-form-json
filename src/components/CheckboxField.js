@@ -4,14 +4,19 @@ import { FieldContainer, Label } from "./_fieldStyles";
 
 function CheckboxField(props) {
   const [checkedItems, setCheckedItems] = useState(new Map());
-  const handleCheckItem = e => {
+
+  const handleCheckItem = (e) => {
     const { name, value } = e.target;
-    setCheckedItems(prevState => prevState.set(name, value));
-    props.setFieldValue(
-      props.name,
-      Array.from(checkedItems.values()).toString()
-    );
+    let items = new Map(checkedItems);
+    if (checkedItems.has(name)) {
+      items.delete(name);
+    } else {
+      items.set(name, value);
+    }
+    setCheckedItems(items);
+    props.setFieldValue(props.name, Array.from(items.values()).toString());
   };
+
   return (
     <FieldContainer>
       <div className="label">{props.label}</div>
@@ -40,7 +45,7 @@ CheckboxField.propTypes = {
   options: PropTypes.array,
   error: PropTypes.any,
   onChange: PropTypes.func.isRequired,
-  setFieldValue: PropTypes.func.isRequired
+  setFieldValue: PropTypes.func.isRequired,
 };
 
 export default CheckboxField;
