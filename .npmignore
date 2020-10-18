@@ -1,4 +1,5 @@
 src
+build
 coverage
 examples
 .babelrc

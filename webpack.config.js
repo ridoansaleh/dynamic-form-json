@@ -22,6 +22,11 @@ module.exports = {
       filename: "./index.html"
     })
   ],
+  output: {
+    path: path.resolve(__dirname,  'build'),
+    publicPath: process.env.NODE_ENV === 'production' ? '/dynamic-form-json/' : '/',
+    filename: 'bundle.js',
+  },
   resolve: {
     extensions: [".js", ".jsx"]
   },

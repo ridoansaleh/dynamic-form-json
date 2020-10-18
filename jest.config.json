@@ -1,4 +1,0 @@
-{
-  "collectCoverageFrom": ["src/*.js", "src/**/*.js", "!**/node_modules/**"],
-  "setupFiles": ["<rootDir>/enzyme.setup.js"]
-}

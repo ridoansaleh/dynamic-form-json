@@ -2,10 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Formik } from "formik";
 import * as yup from "yup";
+import styled from "styled-components";
 import Fields from "./components";
-import "./css/index.css";
 import { createYupSchema } from "./utils/yupSchemaCreator";
 import { FIELD_TYPES, VALIDATION_TYPES } from "./constants";
+
+const Button = styled.button`
+  padding: 4px;
+  width: 190px;
+`;
 
 function DynamicForm(props) {
   const { fields, cbSubmit } = props;
@@ -16,7 +21,6 @@ function DynamicForm(props) {
   });
 
   const yupSchema = fields.reduce(createYupSchema, {});
-  // console.log(yupSchema);
 
   const validateSchema = yup.object().shape(yupSchema);
 
@@ -29,9 +33,9 @@ function DynamicForm(props) {
       {formikProps => (
         <form onSubmit={formikProps.handleSubmit}>
           <Fields fields={fields} formikProps={formikProps} />
-          <button type="submit" className="submit-btn">
+          <Button type="submit">
             Submit
-          </button>
+          </Button>
         </form>
       )}
     </Formik>

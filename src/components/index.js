@@ -11,7 +11,7 @@ const fieldMap = {
   select: SelectField,
   textarea: TextAreaField,
   radio: RadioButtonField,
-  checkbox: CheckboxField
+  checkbox: CheckboxField,
 };
 
 function Field({ fields, formikProps }) {
@@ -30,9 +30,9 @@ function Field({ fields, formikProps }) {
         placeholder={item.placeholder}
         value={values[item.id]}
         options={item.options}
+        error={error}
         onChange={handleChange}
         setFieldValue={setFieldValue}
-        error={error}
       />
     );
   });
@@ -40,7 +40,7 @@ function Field({ fields, formikProps }) {
 
 Field.propTypes = {
   fields: PropTypes.array.isRequired,
-  formikProps: PropTypes.object.isRequired
+  formikProps: PropTypes.object.isRequired,
 };
 
 export default Field;
