@@ -1,8 +1,8 @@
 {
+  "homepage": "https://ridoansaleh.github.io/dynamic-form-json",
   "name": "dynamic-form-json",
   "version": "1.0.8",
   "main": "dist/index.js",
-  "homepage": "https://ridoansaleh.github.io/dynamic-form-json",
   "repository": "https://github.com/ridoansaleh/dynamic-form-json.git",
   "description": "dynamic-form-json is a tiny library to generate a Form in React automatically based on certain array of object that passed as a props",
   "author": "ridoansaleh <ridoansalehnasution98@gmail.com>",
@@ -20,9 +20,9 @@
   ],
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d build",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile"
   },
@@ -33,6 +33,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
     "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^5.0.0",
     "formik": "^2.2.0",
     "gh-pages": "^3.1.0",
