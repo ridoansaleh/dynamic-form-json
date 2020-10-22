@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.8-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v12.6.0-green)](https://www.npmjs.com/package/dynamic-form-json)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ridoansaleh/dynamic-form-json/blob/master/LICENSE) [![dynamic-form-json version](https://img.shields.io/badge/dynamic--form--json-v1.0.8-green)](https://www.npmjs.com/package/dynamic-form-json) [![npm version](https://img.shields.io/badge/npm-v6.14.8-green)](https://www.npmjs.com/package/dynamic-form-json)
 
 # Dynamic Form Json
 
@@ -61,18 +61,18 @@ export const formData = [
     validations: [
       {
         type: "required",
-        params: ["this field is required"]
+        params: ["name is required"],
       },
       {
         type: "min",
-        params: [5, "name cannot be less than 5 characters"]
+        params: [5, "name cannot be less than 5 characters"],
       },
       {
         type: "max",
-        params: [10, "name cannot be more than 10 characters"]
-      }
-    ]
-  }
+        params: [10, "name cannot be more than 10 characters"],
+      },
+    ],
+  },
 ];
 ```
 
@@ -90,7 +90,7 @@ Currently this library supports form input types such as:
 
 - [x] checkbox
 
-- [ ] upload
+- [x] upload
 
 ## API
 
@@ -102,17 +102,94 @@ This library could be imported by any name you like because we export it by `def
 import DynamicForm from "dynamic-form-json";
 ```
 
-###### Text - `TextField(id: string, label?: string, placeholder?: string, type: string("text"), validationType: string, value?: string, validations?: array[object])`
+`fields` is a property that accepts array of object to create the inputs element inside a Form. The last one is `cbSumbit`, which will handle the submission for you. It accepts a callback function.
 
-Text field type are includes of text, email, and number from regular HTML api of input's type. Password is not include yet. So, for Text there are 4 properties that not required which marked by question mark (?).
+### TextField
 
-###### Select - `SelectField(id: string, label?: string, placeholder?: string, type: string("select"), validationType: string, value?: string, options: array[string], validations?: array[object])`
+These are the properties you can pass to an Object in formData array to create TextField component. Not all of them are required. The properties required are id, and type.
 
-###### TextArea - `TextAreaField(id: string, label?: string, placeholder?: string, type: string("textarea"), validationType: string, value?: string, validations?: array[object])`
+| Name           | Description                                                                                                                                                                          | PropType                                              | Required | Default Props                                                                       |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------- | :------- | :---------------------------------------------------------------------------------- |
+| id             | This id will be put as the name of the field / input element                                                                                                                         | string                                                | true     | `""` / empty string                                                                 |
+| label          | The label of the field                                                                                                                                                               | string                                                | false    | Id (uppercase the first letter of id props). Example: `id="email" => label="Email"` |
+| placeholder    | The placeholder of the field                                                                                                                                                         | string                                                | false    | `""`                                                                                |
+| type           | The type of the field                                                                                                                                                                | string <= enum["text", "password", "number", "email"] | true     | `""`                                                                                |
+| value          | The default value of the field                                                                                                                                                       | string                                                | false    | `""`                                                                                |
+| validationType | The validation type of the field. This is related to the type of data you'll enter in your field. If the data you will input to the field is number, you should make this as number. | string                                                | false    | `"string"`                                                                          |
+| validations    | Validation rule for this field. This is similar to yup API because we used yup under the hood.                                                                                       | array                                                 | false    | `"[]"`                                                                              |
 
-###### Radio - `RadioField(id: string, label?: string, placeholder?: string, type: string("radio"), validationType: string, value?: string, options: array[string], validations?: array[object])`
+### SelectField
 
-###### Checkbox - `CheckboxField(id: string, label?: string, placeholder?: string, type: string("textarea"), validationType: string, value?: string, options: array[string], validations?: array[object])`
+These are the properties you can pass to an Object in formData array to create SelectField component.
+
+| Name           | Description                                                                                                                                                                          | PropType           | Required | Default Props                                                                     |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------- | :-------------------------------------------------------------------------------- |
+| id             | This id will be put as the name of the field / input element                                                                                                                         | string             | true     | `""` / empty string                                                               |
+| label          | The label of the field                                                                                                                                                               | string             | false    | Id (uppercase the first letter of id props). Example: `id="city" => label="City"` |
+| placeholder    | The placeholder of the field                                                                                                                                                         | string             | false    | `"Please select"`                                                                 |
+| type           | The type of the field                                                                                                                                                                | string <= "select" | true     | `""`                                                                              |
+| value          | The default value of the field                                                                                                                                                       | string             | false    | `""`                                                                              |
+| options        | The option list of the field / dropdown                                                                                                                                              | array              | false    | `[]`                                                                              |
+| validationType | The validation type of the field. This is related to the type of data you'll enter in your field. If the data you will input to the field is number, you should make this as number. | string             | false    | `"string"`                                                                        |
+| validations    | Validation rule for this field. This is similar to yup API because we used yup under the hood.                                                                                       | array              | false    | `"[]"`                                                                            |
+
+### TextArea
+
+These are the properties you can pass to an Object in formData array to create TextArea component.
+
+| Name           | Description                                                                                                                                                                          | PropType | Required           | Default Props                                                                           |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :----------------- | :-------------------------------------------------------------------------------------- |
+| id             | This id will be put as the name of the field / input element                                                                                                                         | string   | true               | `""` / empty string                                                                     |
+| label          | The label of the field                                                                                                                                                               | string   | false              | Id (uppercase the first letter of id props). Example: `id="address" => label="Address"` |
+| placeholder    | The placeholder of the field                                                                                                                                                         | string   | false              | `""`                                                                                    |
+| type           | The type of the field                                                                                                                                                                | string   | true <= "textarea" | `""`                                                                                    |
+| value          | The default value of the field                                                                                                                                                       | string   | false              | `""`                                                                                    |
+| validationType | The validation type of the field. This is related to the type of data you'll enter in your field. If the data you will input to the field is number, you should make this as number. | string   | false              | `"string"`                                                                              |
+| validations    | Validation rule for this field. This is similar to yup API because we used yup under the hood.                                                                                       | array    | false              | `"[]"`                                                                                  |
+
+### Radio
+
+These are the properties you can pass to an Object in formData array to create Radio component.
+
+| Name           | Description                                                                                                                                                                          | PropType | Required        | Default Props                                                                         |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :-------------- | :------------------------------------------------------------------------------------ |
+| id             | This id will be put as the name of the field / input element                                                                                                                         | string   | true            | `""` / empty string                                                                   |
+| label          | The label of the field                                                                                                                                                               | string   | false           | Id (uppercase the first letter of id props). Example: `id="gender" => label="Gender"` |
+| placeholder    | The placeholder of the field                                                                                                                                                         | string   | false           | `""`                                                                                  |
+| type           | The type of the field                                                                                                                                                                | string   | true <= "radio" | `""`                                                                                  |
+| value          | The default value of the field                                                                                                                                                       | string   | false           | `""`                                                                                  |
+| options        | The option list of the radio field                                                                                                                                                   | array    | false           | `[]`                                                                                  |
+| validationType | The validation type of the field. This is related to the type of data you'll enter in your field. If the data you will input to the field is number, you should make this as number. | string   | false           | `"string"`                                                                            |
+| validations    | Validation rule for this field. This is similar to yup API because we used yup under the hood.                                                                                       | array    | false           | `"[]"`                                                                                |
+
+### Checkbox
+
+These are the properties you can pass to an Object in formData array to create Checkbox component.
+
+| Name           | Description                                                                                                                                                                          | PropType | Required           | Default Props                                                                           |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :----------------- | :-------------------------------------------------------------------------------------- |
+| id             | This id will be put as the name of the field / input element                                                                                                                         | string   | true               | `""` / empty string                                                                     |
+| label          | The label of the field                                                                                                                                                               | string   | false              | Id (uppercase the first letter of id props). Example: `id="hobbies" => label="Hobbies"` |
+| placeholder    | The placeholder of the field                                                                                                                                                         | string   | false              | `""`                                                                                    |
+| type           | The type of the field                                                                                                                                                                | string   | true <= "checkbox" | `""`                                                                                    |
+| value          | The default value of the field                                                                                                                                                       | string   | false              | `""`                                                                                    |
+| options        | The option list of the checkbox field                                                                                                                                                | array    | false              | `[]`                                                                                    |
+| validationType | The validation type of the field. This is related to the type of data you'll enter in your field. If the data you will input to the field is number, you should make this as number. | string   | false              | `"string"`                                                                              |
+| validations    | Validation rule for this field. This is similar to yup API because we used yup under the hood.                                                                                       | array    | false              | `"[]"`                                                                                  |
+
+### UploadField
+
+These are the properties you can pass to an Object in formData array to create UploadField component.
+
+| Name           | Description                                                                                                                                                                          | PropType           | Required | Default Props                                                                       |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :------- | :---------------------------------------------------------------------------------- |
+| id             | This id will be put as the name of the field / input element                                                                                                                         | string             | true     | `""` / empty string                                                                 |
+| label          | The label of the field                                                                                                                                                               | string             | false    | Id (uppercase the first letter of id props). Example: `id="photo" => label="Photo"` |
+| placeholder    | The placeholder of the field                                                                                                                                                         | string             | false    | `""`                                                                                |
+| type           | The type of the field                                                                                                                                                                | string <= "upload" | true     | `""`                                                                                |
+| value          | The default value of the field                                                                                                                                                       | string             | false    | `""`                                                                                |
+| validationType | The validation type of the field. This is related to the type of data you'll enter in your field. If the data you will input to the field is number, you should make this as number. | string             | false    | `"string"`                                                                          |
+| validations    | Validation rule for this field. This is similar to yup API because we used yup under the hood.                                                                                       | array              | false    | `"[]"`                                                                              |
 
 ## Info
 

@@ -28,13 +28,16 @@ function CheckboxField(props) {
               name={props.name + "-" + index}
               value={opt}
               checked={checkedItems.get(props.name + "-" + index)}
+              onBlur={props.handleBlur}
               onChange={handleCheckItem}
             />
             {opt}
           </Label>
         );
       })}
-      {props.error && <div className="error">{props.error}</div>}
+      {props.error && props.touched[props.name] && (
+        <div className="error">{props.error}</div>
+      )}
     </FieldContainer>
   );
 }
