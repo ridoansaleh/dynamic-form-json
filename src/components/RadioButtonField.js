@@ -14,13 +14,16 @@ function RadioButtonField(props) {
               name={props.name}
               value={opt}
               checked={opt === props.value}
+              onBlur={props.handleBlur}
               onChange={props.onChange}
             />
             {opt}
           </Label>
         );
       })}
-      {props.error && <div className="error">{props.error}</div>}
+      {props.error && props.touched[props.name] && (
+        <div className="error">{props.error}</div>
+      )}
     </FieldContainer>
   );
 }
@@ -31,7 +34,7 @@ RadioButtonField.propTypes = {
   value: PropTypes.any,
   options: PropTypes.array,
   error: PropTypes.any,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 export default RadioButtonField;

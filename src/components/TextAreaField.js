@@ -11,9 +11,12 @@ function TextAreaField(props) {
         name={props.name}
         value={props.value}
         placeholder={props.placeholder}
+        onBlur={props.handleBlur}
         onChange={props.onChange}
       />
-      {props.error && <div className="error">{props.error}</div>}
+      {props.error && props.touched[props.name] && (
+        <div className="error">{props.error}</div>
+      )}
     </FieldContainer>
   );
 }
@@ -24,7 +27,7 @@ TextAreaField.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.any,
   error: PropTypes.any,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 TextAreaField.defaultProps = {
@@ -33,7 +36,7 @@ TextAreaField.defaultProps = {
   placeholder: "",
   value: "",
   error: "",
-  onChange: () => {}
+  onChange: () => {},
 };
 
 export default TextAreaField;

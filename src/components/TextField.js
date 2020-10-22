@@ -7,13 +7,16 @@ function TextField(props) {
     <FieldContainer>
       <div className="label">{props.label}</div>
       <Input
-        type="text"
+        type={props.type}
         name={props.name}
         placeholder={props.placeholder}
         value={props.value}
+        onBlur={props.handleBlur}
         onChange={props.onChange}
       />
-      {props.error && <div className="error">{props.error}</div>}
+      {props.error && props.touched[props.name] && (
+        <div className="error">{props.error}</div>
+      )}
     </FieldContainer>
   );
 }
@@ -24,7 +27,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.any,
   error: PropTypes.any,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TextField;

@@ -50,6 +50,18 @@ export const TextArea = styled.textarea`
   }
 `;
 
+export const Upload = styled.input`
+  width: 100%;
+  min-width: 180px;
+  box-sizing: border-box;
+  padding: 5px;
+  height: 30px;
+
+  @media screen and (min-width: 1024px) {
+    width: 300px;
+  }
+`;
+
 export const Label = styled.label`
   margin-right: 20px;
 `;
