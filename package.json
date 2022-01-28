@@ -1,7 +1,7 @@
 {
   "homepage": "https://ridoansaleh.github.io/dynamic-form-json",
   "name": "dynamic-form-json",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "repository": "https://github.com/ridoansaleh/dynamic-form-json.git",
   "description": "dynamic-form-json is a tiny library to generate a Form in React automatically based on certain array of object that passed as a props",
